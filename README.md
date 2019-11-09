@@ -93,8 +93,6 @@ Classes:
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
 Initial release with syntax highlighting and snippets for basic statements and definitions.
