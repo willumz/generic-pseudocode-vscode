@@ -1,0 +1,238 @@
+{
+	"Switch-case statement": {
+		"prefix": "switch",
+		"body": [
+			"switch(${1:key}) {",
+            "\tcase \"${2:value}\":",
+            "\t\t$3",
+            "\t\tbreak",
+            "}"
+		],
+		"description": "Create a switch-case statement"
+	},
+	"Switch-case statement with do": {
+		"prefix": "switchdo",
+		"body": [
+			"switch(${1:key}) do",
+            "\tcase \"${2:value}\":",
+            "\t\t$3",
+            "\t\tbreak",
+            "end"
+		],
+		"description": "Create a switch-case statement"
+	},
+	"If statement": {
+		"prefix": "if",
+		"body": [
+			"if (${1:condition}) {",
+            "\t",
+            "}"
+		],
+		"description": "Create an if statement"
+	},
+	"If statement with do": {
+		"prefix": "ifdo",
+		"body": [
+			"if (${1:condition}) do",
+            "\t",
+            "end"
+		],
+		"description": "Create an if statement with do"
+	},
+	"If-else statement": {
+		"prefix": "ifelse",
+		"body": [
+			"if (${1:condition}) {",
+            "\t$2",
+            "} else {",
+            "\t$3",
+            "}"
+		],
+        "description": "Create an if-else statement"
+    },
+	"If-else statement with do": {
+		"prefix": "ifelsedo",
+		"body": [
+			"if (${1:condition}) do",
+            "\t$2",
+            "end else do",
+            "\t$3",
+            "end"
+		],
+		"description": "Create an if-else statement with do"
+	},
+	"Try-catch statement": {
+		"prefix": "try",
+		"body": [
+			"try {",
+            "\t$2",
+            "} catch(${1:err}) {",
+            "\t$3",
+            "}"
+		],
+		"description": "Create a try-catch statement"
+	},
+	"Try-catch statement with do": {
+		"prefix": "trydo",
+		"body": [
+			"try do",
+            "\t$2",
+            "end catch(${1:err}) do",
+            "\t$3",
+            "end"
+		],
+		"description": "Create a try-catch statement with do"
+	},
+	"Function": {
+		"prefix": "function",
+		"body": [
+			"function ${1:func}(${2:param}) {",
+            "\t$3",
+            "}"
+		],
+		"description": "Define a new function"
+	},
+	"Function with do": {
+		"prefix": "functiondo",
+		"body": [
+			"function ${1:func}(${2:param}) do",
+            "\t$3",
+            "end"
+		],
+		"description": "Define a new function with do"
+	},
+	"Procedure": {
+		"prefix": "procedure",
+		"body": [
+			"procedure ${1:procedureName}() {",
+            "\t$2",
+            "}"
+		],
+		"description": "Define a new procedure"
+	},
+	"Procedure with do": {
+		"prefix": "proceduredo",
+		"body": [
+			"procedure ${1:procedureName}() do",
+            "\t$2",
+            "end"
+		],
+		"description": "Define a new procedure with do"
+	},
+	"For loop": {
+		"prefix": "for",
+		"body": [
+			"for ($1) {",
+            "\t$2",
+            "}"
+		],
+		"description": "Create a for loop"
+	},
+	"For loop with do": {
+		"prefix": "fordo",
+		"body": [
+			"for ($1) do",
+            "\t$2",
+            "end"
+		],
+		"description": "Create a for loop with do"
+    },
+    "Foreach loop": {
+		"prefix": "foreach",
+		"body": [
+			"foreach (${1:i} in ${2:iterable}) {",
+            "\t$3",
+            "}"
+		],
+		"description": "Create a foreach loop"
+	},
+	"Foreach loop with do": {
+		"prefix": "foreachdo",
+		"body": [
+			"foreach (${1:i} in ${2:iterable}) do",
+            "\t$3",
+            "end"
+		],
+		"description": "Create a foreach loop with do"
+	},
+	"While loop": {
+		"prefix": "while",
+		"body": [
+			"while (${1:condition}) {",
+            "\t$2",
+            "}"
+		],
+		"description": "Create a while loop"
+	},
+	"While loop with do": {
+		"prefix": "whiledo",
+		"body": [
+			"while (${1:condition}) do",
+            "\t$2",
+            "end"
+		],
+		"description": "Create a while loop with do"
+    },
+    "Loop": {
+		"prefix": "loop",
+		"body": [
+			"loop (${1:condition}) {",
+            "\t$2",
+            "}"
+		],
+		"description": "Create a loop"
+	},
+	"Loop with do": {
+		"prefix": "loopdo",
+		"body": [
+			"loop (${1:condition}) do",
+            "\t$2",
+            "end"
+		],
+		"description": "Create a loop with do"
+	},
+	"Class": {
+		"prefix": "class",
+		"body": [
+			"class ${1:className} {",
+            "\tconstructor(${2:param}) {",
+            "\t\t$3",
+            "\t}",
+            "}"
+		],
+		"description": "Define a class"
+	},
+	"Class with do": {
+		"prefix": "classdo",
+		"body": [
+			"class ${1:className} do",
+            "\tconstructor(${2:param}) do",
+            "\t\t$3",
+            "\tend",
+            "end"
+		],
+		"description": "Define a class"
+	},
+	"Class extends": {
+		"prefix": "classextends",
+		"body": [
+			"class ${1:className} extends ${2:super} {",
+            "\tconstructor(${3:param}) {",
+            "\t\t$4",
+            "\t}",
+            "}"
+		],
+		"description": "Define a class which extends a superclass"
+	},
+	"Class extends with do": {
+		"prefix": "classextendsdo",
+		"body": [
+			"class ${1:className} extends ${2:super} do",
+            "\tconstructor(${3:param}) do",
+            "\t\t$4",
+            "\tend",
+            "end"
+		],
+		"description": "Define a class which extends a superclass with do"
+	}
+}

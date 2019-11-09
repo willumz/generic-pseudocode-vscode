@@ -1,0 +1,274 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Will's Pseudocode",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#meta"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#bools"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#storage"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.pseudocode",
+					"match": "\\/\\/.*"
+				},
+				{
+					"name": "comment.block.pseudocode",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.pseudocode",
+					"match": "(?i)\\b(if|else|try|catch|except|output|import|while|for|foreach|loop|return|print|input|set|extends|switch|case|do|end|break)\\b"
+				},
+				{
+					"name": "keyword.operator.logical.pseudocode",
+					"match": "(?i)\\b(and|or|not|!|&&|\\|\\||in)\\b"
+				},
+				{
+					"name": "keyword.declaration.function.pseudocode",
+					"match": "(?i)\\b(function|procedure)\\b"
+				},
+				{
+					"name": "keyword.declaration.class.pseudocode",
+					"match": "(?i)\\bclass\\b"
+				},
+				{
+					"name": "meta.function-call.pseudocode",
+					"match": "([a-zA-Z_][a-zA-Z0-9_]*)(?= *\\(.*?\\))",
+					"captures": {
+						"1": {
+							"name": "entity.name.function.pseudocode"
+						}
+					}
+				}
+			]
+		},
+		"meta": {
+			"patterns": [
+				{
+					"name": "meta.function.pseudocode",
+					"begin": "(?i)\\b((function|procedure)) ([a-zA-Z_][a-zA-Z0-9_]*)\\(((.*?))\\) *(?:\\{|(do))",
+					"end": "(?i)(?:\\}|(end))",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.declaration.function.pseudocode"
+						},
+						"2": {
+							"name": "storage.type.function.pseudocode"
+						},
+						"3": {
+							"name": "entity.name.function.pseudocode"
+						},
+						"4": {
+							"name": "meta.parameters.pseudocode"
+						},
+						"5": {
+							"name": "variable.parameter.pseudocode"
+						},
+						"6": {
+							"name": "keyword.control.pseudocode"
+						}
+					},
+					"endCaptures": {
+						"1": {
+							"name": "keyword.control.pseudocode"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#meta"
+						},
+						{
+							"include": "#keywords"
+						},
+						{
+							"include": "#entities"
+						},
+						{
+							"include": "#storage"
+						},
+						{
+							"include": "#keywords"
+						},
+						{
+							"include": "#variables"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#bools"
+						}
+					]
+				},
+				{
+					"name": "meta.class.pseudocode",
+					"begin": "(?i)\\b((class)) ([a-zA-Z_][a-zA-Z0-9_]*) *(?:(extends) *([a-zA-Z_][a-zA-Z0-9_]*))? *(?:\\{|(do))",
+					"end": "(?i)(?:\\}|(end))",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.declaration.class.pseudocode"
+						},
+						"2": {
+							"name": "storage.type.class.pseudocode"
+						},
+						"3": {
+							"name": "entity.name.type.class.pseudocode"
+						},
+						"4": {
+							"name": "storage.modifier.pseudocode"
+						},
+						"5": {
+							"name": "entity.other.inherited-class.pseudocode"
+						},
+						"6": {
+							"name": "keyword.control.pseudocode"
+						}
+					},
+					"endCaptures": {
+						"1": {
+							"name": "keyword.control.pseudocode"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#meta"
+						},
+						{
+							"include": "#keywords"
+						},
+						{
+							"include": "#entities"
+						},
+						{
+							"include": "#storage"
+						},
+						{
+							"include": "#keywords"
+						},
+						{
+							"include": "#variables"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#bools"
+						}
+					]
+				}
+			]
+		},
+		"storage": {
+			"patterns": [
+				{
+					"name": "storage.type.function.pseudocode",
+					"match": "(?i)\\b(function|procedure)\\b"
+				},
+				{
+					"name": "storage.type.class.pseudocode",
+					"match": "(?i)\\bclass\\b"
+				},
+				{
+					"name": "storage.modifier.pseudocode",
+					"match": "(?i)\\bextends\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.pseudocode",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.pseudocode",
+					"match": "\\\\."
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.integer.pseudocode",
+					"match": "\\b[0-9]+(?![0-9]*\\.)\\b"
+				},
+				{
+					"name": "constant.numeric.float.pseudocode",
+					"match": "\\b[0-9]+\\.[0-9]+\\b"
+				}
+			]
+		},
+		"bools": {
+			"patterns": [{
+				"name": "constant.language.pesudocode",
+				"match": "(?i)\\b(true|false|null)\\b"
+			}]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.function.pseudocode",
+					"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*(?= *\\()\\b"
+				},
+				{
+					"name": "variable.other.pseudocode",
+					"match": "[a-zA-Z_][a-zA-Z0-9_]*"
+				},
+				{
+					"name": "variable.parameter.pseudocode",
+					"match": "(?i)(?<=function [a-zA-Z0-9_]\\().*?(?=\\))"
+				},
+				{
+					"name": "variable.parameter.pseudocode",
+					"match": "(?i)(?<=procedure [a-zA-Z0-9_]\\().*?(?=\\))"
+				}
+			]
+		},
+		"entities": {
+			"patterns": [
+				{
+					"name": "entity.name.function.pseudocode",
+					"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*(?= *\\()\\b"
+				},
+				{
+					"name": "entity.name.class.pseudocode",
+					"match": "(?i)\\b(?<=class )[a-zA-Z_][a-zA-Z0-9_]*(?= *\\()\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.pseudo"
+}

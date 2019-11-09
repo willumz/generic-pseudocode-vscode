@@ -1,0 +1,58 @@
+
+
+set x = 1
+if x == 1 do
+    print "x = 1"
+end else do
+    print "x != 1"
+end
+
+set y = 1
+while y <= 10 do
+    print y
+    y++
+end
+
+for (set i = 1; i <= 10; i++) do
+    print i
+end
+
+foreach (i in iterable) do
+    print i
+end
+
+set a = "x"
+switch(a) do
+    case "x":
+        print "a = 'x'"
+        break
+    case "y":
+        print "a = 'y'"
+        break
+end
+
+try do
+    MakeError()
+end catch(err) do
+    print err
+end
+
+function Add(a, b) do
+    return a + b
+end
+
+procedure HelloWorld() do
+    print "Hello World"
+end
+
+class A do
+    constructor() do
+        print "Constructed"
+    end
+end
+
+class A extends B do
+    constructor() do
+        print "Constructed"
+    end
+end

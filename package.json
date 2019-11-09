@@ -1,0 +1,34 @@
+{
+    "name": "generic-pseudocode",
+    "displayName": "Pseudocode",
+    "description": "A simple extension for syntax highlighting of generic pseudocode.",
+    "publisher": "Willumz",
+    "icon": "images/icon.png",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.39.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Snippets"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "pseudocode",
+            "aliases": ["Will's Pseudocode", "pseudocode"],
+            "extensions": [".pseudo"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "pseudocode",
+            "scopeName": "source.pseudo",
+            "path": "./syntaxes/pseudocode.tmLanguage.json"
+        }],
+        "snippets": [
+            {
+                "language": "pseudocode",
+                "path": "./snippets.json"
+            }
+        ]
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "comments": {
+        // symbol used for single line comment. Remove this entry if your language does not support line comments
+        "lineComment": "//",
+        // symbols used for start and end a block comment. Remove this entry if your language does not support block comments
+        "blockComment": [ "/*", "*/" ]
+    },
+    // symbols used as brackets
+    "brackets": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["do", "end"]
+    ],
+    // symbols that are auto closed when typing
+    "autoClosingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["\"", "\""],
+        ["'", "'"],
+        ["do", "end"]
+    ],
+    // symbols that that can be used to surround a selection
+    "surroundingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["\"", "\""],
+        ["'", "'"],
+        ["do", "end"]
+    ],
+
+    "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)(?<!do)(?<!end)(?<!doend)",
+
+    "indentationRules": {
+        "increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*|do)$",
+        "decreaseIndentPattern": "^((?!.*?\\/\\*).*\\*/)?\\s*([\\}\\]]|end).*$"
+    }
+}
