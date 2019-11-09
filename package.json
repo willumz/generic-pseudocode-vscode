@@ -30,5 +30,9 @@
                 "path": "./snippets.json"
             }
         ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Willumz/generic-pseudocode-vscode.git"
     }
 }
