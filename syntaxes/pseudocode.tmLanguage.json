@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Will's Pseudocode",
+	"name": "Pseudocode",
 	"patterns": [
 		{
 			"include": "#comments"

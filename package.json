@@ -15,7 +15,7 @@
     "contributes": {
         "languages": [{
             "id": "pseudocode",
-            "aliases": ["Will's Pseudocode", "pseudocode"],
+            "aliases": ["Generic Pseudocode", "pseudocode"],
             "extensions": [".pseudo"],
             "configuration": "./language-configuration.json"
         }],
