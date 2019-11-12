@@ -4,7 +4,7 @@
     "description": "A simple extension for syntax highlighting of generic pseudocode.",
     "publisher": "Willumz",
     "icon": "images/icon.png",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "engines": {
         "vscode": "^1.39.0"
     },

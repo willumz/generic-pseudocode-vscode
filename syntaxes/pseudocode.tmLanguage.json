@@ -103,6 +103,9 @@
 					},
 					"patterns": [
 						{
+							"include": "#comments"
+						},
+						{
 							"include": "#meta"
 						},
 						{

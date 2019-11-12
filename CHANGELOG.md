@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.2
+
+- Fixed bug which prevented comments in functions and procedures
+
 ## 1.0.1
 - Minor changes to extension information
 
