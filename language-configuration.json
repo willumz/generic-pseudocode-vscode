@@ -19,7 +19,7 @@
         ["(", ")"],
         ["\"", "\""],
         ["'", "'"],
-        ["do", "end"]
+        {"open": "do", "close": "end", "notIn": ["string", "comment"]}
     ],
     // symbols that that can be used to surround a selection
     "surroundingPairs": [

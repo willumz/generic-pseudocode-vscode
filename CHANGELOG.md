@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.3
+
+- Fixed bug where do end would be autoclose in strings and comments
+
 ## 1.0.2
 
 - Fixed bug which prevented comments in functions and procedures

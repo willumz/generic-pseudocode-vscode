@@ -91,11 +91,19 @@ Classes:
 ### Snippets
 ![Snippets](images/snippets.gif)
 
+## Known Bugs
+
+- do end autocloses in variables
+
 ## Release Notes
+
+### 1.0.3
+
+- Fixed bug where do end would be autoclose in strings and comments
 
 ### 1.0.2
 
-- Bugfix which prevented comments in functions and procedures
+- Fixed bug which prevented comments in functions and procedures
 
 ### 1.0.1
 
