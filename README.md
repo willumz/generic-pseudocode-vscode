@@ -88,6 +88,10 @@ Classes:
 
 ![Classes](images/class.png)
 
+Structs:
+
+![Structs](images/struct.png)
+
 ### Snippets
 ![Snippets](images/snippets.gif)
 
@@ -96,6 +100,11 @@ Classes:
 - do end autocloses in variables
 
 ## Release Notes
+
+### 1.1.0
+
+- Added structs
+- Added `struct` and `structdo` snippets
 
 ### 1.0.3
 

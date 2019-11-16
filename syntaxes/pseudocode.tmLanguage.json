@@ -60,6 +60,10 @@
 					"match": "(?i)\\bclass\\b"
 				},
 				{
+					"name": "keyword.declaration.struct.pseudocode",
+					"match": "(?i)\\bstruct\\b"
+				},
+				{
 					"name": "meta.function-call.pseudocode",
 					"match": "([a-zA-Z_][a-zA-Z0-9_]*)(?= *\\(.*?\\))",
 					"captures": {
@@ -192,6 +196,62 @@
 							"include": "#bools"
 						}
 					]
+				},
+				{
+					"name": "meta.struct.pseudocode",
+					"begin": "(?i)\\b((struct)) ([a-zA-Z_][a-zA-Z0-9_]*) *(?:\\{|(do))",
+					"end": "(?i)(?:\\}|(end))",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.declaration.struct.pseudocode"
+						},
+						"2": {
+							"name": "storage.type.struct.pseudocode"
+						},
+						"3": {
+							"name": "entity.name.type.struct.pseudocode"
+						},
+						"4": {
+							"name": "storage.modifier.pseudocode"
+						},
+						"5": {
+							"name": "keyword.control.pseudocode"
+						}
+					},
+					"endCaptures": {
+						"1": {
+							"name": "keyword.control.pseudocode"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#meta"
+						},
+						{
+							"include": "#keywords"
+						},
+						{
+							"include": "#entities"
+						},
+						{
+							"include": "#storage"
+						},
+						{
+							"include": "#keywords"
+						},
+						{
+							"include": "#variables"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#bools"
+						}
+					]
 				}
 			]
 		},
@@ -204,6 +264,10 @@
 				{
 					"name": "storage.type.class.pseudocode",
 					"match": "(?i)\\bclass\\b"
+				},
+				{
+					"name": "storage.type.struct.pseudocode",
+					"match": "(?i)\\bstruct\\b"
 				},
 				{
 					"name": "storage.modifier.pseudocode",
@@ -269,6 +333,10 @@
 				{
 					"name": "entity.name.class.pseudocode",
 					"match": "(?i)\\b(?<=class )[a-zA-Z_][a-zA-Z0-9_]*(?= *\\()\\b"
+				},
+				{
+					"name": "entity.name.struct.pseudocode",
+					"match": "(?i)\\b(?<=struct )[a-zA-Z_][a-zA-Z0-9_]*(?= *\\()\\b"
 				}
 			]
 		}

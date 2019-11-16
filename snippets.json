@@ -211,7 +211,7 @@
             "\tend",
             "end"
 		],
-		"description": "Define a class"
+		"description": "Define a class with do"
 	},
 	"Class extends": {
 		"prefix": "classextends",
@@ -234,5 +234,23 @@
             "end"
 		],
 		"description": "Define a class which extends a superclass with do"
+	},
+	"Struct": {
+		"prefix": "struct",
+		"body": [
+			"struct ${1:structName} {",
+            "\t$2",
+            "}"
+		],
+		"description": "Define a struct"
+	},
+	"Struct with do": {
+		"prefix": "structdo",
+		"body": [
+			"struct ${1:structName} do",
+            "\t$2",
+            "end"
+		],
+		"description": "Define a struct with do"
 	}
 }
