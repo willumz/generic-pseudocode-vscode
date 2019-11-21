@@ -1,6 +1,10 @@
 # Change Log
 
-### 1.1.0
+## 1.2.0
+
+- Added template strings (e.g. `"Hi ${user.name}"`)
+
+## 1.1.0
 
 - Added structs
 - Added `struct` and `structdo` snippets

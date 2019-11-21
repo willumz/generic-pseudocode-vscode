@@ -1,5 +1,8 @@
 # Pseudocode
 
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/willumz.generic-pseudocode)](https://marketplace.visualstudio.com/items?itemName=willumz.generic-pseudocode)
+<!-- [![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/willumz.generic-pseudocode)](https://marketplace.visualstudio.com/items?itemName=willumz.generic-pseudocode) -->
+
 A simple extension for syntax highlighting of generic pseudocode.
 
 Syntax highlighting exists for multiple variants of common pseudocode keywords, allowing you to use your own style and not confining you to a specific format.
@@ -64,6 +67,21 @@ e.g.
         end
     end
 ```
+#### Structs:
+```
+struct
+e.g.
+    struct A do
+        
+    end
+```
+#### Template Strings:
+```
+${}
+e.g.
+    set user = "John"
+    print "Hello, ${user}!"
+```
 If Else:
 
 ![If else](images/ifelse.png)
@@ -100,6 +118,10 @@ Structs:
 - do end autocloses in variables
 
 ## Release Notes
+
+### 1.2.0
+
+- Added template strings (e.g. `"Hi ${user.name}"`)
 
 ### 1.1.0
 
