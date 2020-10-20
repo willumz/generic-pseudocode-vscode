@@ -30,6 +30,7 @@ set e.g. set x = 1
 switch
 case
 break
+continue
 do
 end
 ```
@@ -118,6 +119,11 @@ Structs:
 - do end autocloses in variables
 
 ## Release Notes
+
+### 1.3.0
+
+- Added `static`, `public`, and `private` modifiers for structs, classes, and functions
+- Added the `continue` keyword
 
 ### 1.2.0
 

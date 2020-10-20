@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.3.0
+
+- Added `static`, `public`, and `private` modifiers for structs, classes, and functions
+- Added the `continue` keyword
+
 ## 1.2.0
 
 - Added template strings (e.g. `"Hi ${user.name}"`)

@@ -45,7 +45,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.pseudocode",
-					"match": "(?i)\\b(if|else|try|catch|except|output|import|while|for|foreach|loop|return|print|input|set|extends|switch|case|do|end|break)\\b"
+					"match": "(?i)\\b(if|else|try|catch|except|output|import|while|for|foreach|loop|return|print|input|set|extends|static|public|private|switch|case|do|end|break|continue)\\b"
 				},
 				{
 					"name": "keyword.operator.logical.pseudocode",
@@ -78,25 +78,28 @@
 			"patterns": [
 				{
 					"name": "meta.function.pseudocode",
-					"begin": "(?i)\\b((function|procedure)) ([a-zA-Z_][a-zA-Z0-9_]*)\\(((.*?))\\) *(?:\\{|(do))",
+					"begin": "(?i)\\b(static |private |public )?((function|procedure)) ([a-zA-Z_][a-zA-Z0-9_]*)\\(((.*?))\\) *(?:\\{|(do))",
 					"end": "(?i)(?:\\}|(end))",
 					"beginCaptures": {
 						"1": {
-							"name": "keyword.declaration.function.pseudocode"
+							"name": "storage.modifier.pseudocode"
 						},
 						"2": {
-							"name": "storage.type.function.pseudocode"
+							"name": "keyword.declaration.function.pseudocode"
 						},
 						"3": {
-							"name": "entity.name.function.pseudocode"
+							"name": "storage.type.function.pseudocode"
 						},
 						"4": {
-							"name": "meta.parameters.pseudocode"
+							"name": "entity.name.function.pseudocode"
 						},
 						"5": {
-							"name": "variable.parameter.pseudocode"
+							"name": "meta.parameters.pseudocode"
 						},
 						"6": {
+							"name": "variable.parameter.pseudocode"
+						},
+						"7": {
 							"name": "keyword.control.pseudocode"
 						}
 					},
@@ -140,25 +143,28 @@
 				},
 				{
 					"name": "meta.class.pseudocode",
-					"begin": "(?i)\\b((class)) ([a-zA-Z_][a-zA-Z0-9_]*) *(?:(extends) *([a-zA-Z_][a-zA-Z0-9_]*))? *(?:\\{|(do))",
+					"begin": "(?i)\\b(static |private |public )?((class)) ([a-zA-Z_][a-zA-Z0-9_]*) *(?:(extends) *([a-zA-Z_][a-zA-Z0-9_]*))? *(?:\\{|(do))",
 					"end": "(?i)(?:\\}|(end))",
 					"beginCaptures": {
 						"1": {
-							"name": "keyword.declaration.class.pseudocode"
-						},
-						"2": {
-							"name": "storage.type.class.pseudocode"
-						},
-						"3": {
-							"name": "entity.name.type.class.pseudocode"
-						},
-						"4": {
 							"name": "storage.modifier.pseudocode"
 						},
+						"2": {
+							"name": "keyword.declaration.class.pseudocode"
+						},
+						"3": {
+							"name": "storage.type.class.pseudocode"
+						},
+						"4": {
+							"name": "entity.name.type.class.pseudocode"
+						},
 						"5": {
-							"name": "entity.other.inherited-class.pseudocode"
+							"name": "storage.modifier.pseudocode"
 						},
 						"6": {
+							"name": "entity.other.inherited-class.pseudocode"
+						},
+						"7": {
 							"name": "keyword.control.pseudocode"
 						}
 					},
@@ -199,22 +205,25 @@
 				},
 				{
 					"name": "meta.struct.pseudocode",
-					"begin": "(?i)\\b((struct)) ([a-zA-Z_][a-zA-Z0-9_]*) *(?:\\{|(do))",
+					"begin": "(?i)\\b(static |private |public )?((struct)) ([a-zA-Z_][a-zA-Z0-9_]*) *(?:\\{|(do))",
 					"end": "(?i)(?:\\}|(end))",
 					"beginCaptures": {
 						"1": {
-							"name": "keyword.declaration.struct.pseudocode"
-						},
-						"2": {
-							"name": "storage.type.struct.pseudocode"
-						},
-						"3": {
-							"name": "entity.name.type.struct.pseudocode"
-						},
-						"4": {
 							"name": "storage.modifier.pseudocode"
 						},
+						"2": {
+							"name": "keyword.declaration.struct.pseudocode"
+						},
+						"3": {
+							"name": "storage.type.struct.pseudocode"
+						},
+						"4": {
+							"name": "entity.name.type.struct.pseudocode"
+						},
 						"5": {
+							"name": "storage.modifier.pseudocode"
+						},
+						"6": {
 							"name": "keyword.control.pseudocode"
 						}
 					},
@@ -272,6 +281,18 @@
 				{
 					"name": "storage.modifier.pseudocode",
 					"match": "(?i)\\bextends\\b"
+				},
+				{
+					"name": "storage.modifier.pseudocode",
+					"match": "(?i)\\bstatic\\b"
+				},
+				{
+					"name": "storage.modifier.pseudocode",
+					"match": "(?i)\\bpublic\\b"
+				},
+				{
+					"name": "storage.modifier.pseudocode",
+					"match": "(?i)\\bprivate\\b"
 				}
 			]
 		},
