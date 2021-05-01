@@ -21,6 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.activate = void 0;
 const vscode = __importStar(require("vscode"));
+const Config_1 = require("./Config");
 const DocumentSemanticTokensProvider_1 = require("./DocumentSemanticTokensProvider");
 const tokenTypes_1 = require("./tokenTypes");
 /** Entry point for the extension which runs when a file with the language
@@ -28,6 +29,11 @@ const tokenTypes_1 = require("./tokenTypes");
  */
 function activate(context) {
     const legend = new vscode.SemanticTokensLegend(tokenTypes_1.tokenTypesLegend, tokenTypes_1.tokenModifiersLegend);
-    context.subscriptions.push(vscode.languages.registerDocumentSemanticTokensProvider({ language: "pseudocode" }, new DocumentSemanticTokensProvider_1.DocumentSemanticTokensProvider(), legend));
+    var DocSemTokProv = new DocumentSemanticTokensProvider_1.DocumentSemanticTokensProvider();
+    var conf = new Config_1.Config(() => {
+        if (conf.config.custom !== undefined)
+            DocSemTokProv.index = conf.config.custom;
+        context.subscriptions.push(vscode.languages.registerDocumentSemanticTokensProvider({ language: "pseudocode" }, DocSemTokProv, legend));
+    });
 }
 exports.activate = activate;

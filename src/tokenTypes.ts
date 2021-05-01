@@ -5,8 +5,4 @@ const tokenTypesLegend = ["keyword"];
 
 const tokenModifiersLegend: string[] = [];
 
-export {
-    tokenCodes,
-    tokenTypesLegend,
-    tokenModifiersLegend
-}
+export { tokenCodes, tokenTypesLegend, tokenModifiersLegend };

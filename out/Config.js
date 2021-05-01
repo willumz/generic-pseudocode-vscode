@@ -19,17 +19,22 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Config = void 0;
 const os_1 = require("os");
 const path_1 = require("path");
 const vscode = __importStar(require("vscode"));
-const promises_1 = require("fs/promises");
+const fs_1 = require("fs");
 /**
  * Config class which handles the .pseudoconfig file in the home directory
  */
 class Config {
-    constructor() {
+    /**
+     * Constructor for {@link Config}
+     * @param callback - The callback for whatever instantiated {@link Config} to continue in after the config file has been loaded
+     */
+    constructor(callback) {
         this._config = {};
-        this.findConfigFile();
+        this.findConfigFile(callback);
     }
     /** Read-only access to the config file in JSON format */
     get config() {
@@ -37,21 +42,22 @@ class Config {
     }
     /** Finds the config file with the highest priority
      * (currently only supports config file in home directory)
+     * @param callback - The callback for whatever instantiated {@link Config} to continue in after the config file has been loaded
      */
-    findConfigFile() {
+    findConfigFile(callback) {
         var homeDirectory = os_1.homedir();
         console.log(homeDirectory);
         var homeDirFile = path_1.join(homeDirectory, ".pseudoconfig");
-        console.log(homeDirFile);
+        console.log("Home Dir File", homeDirFile);
         console.log(vscode.workspace.workspaceFolders);
-        promises_1.readFile(homeDirFile)
+        fs_1.promises.readFile(homeDirFile)
             .then(data => {
             this._config = JSON.parse(data.toString());
-            console.log();
+            callback();
         })
-            .catch();
+            .catch(() => {
+            console.log("Pseudocode: Error loading .pseudoconfig file");
+        });
     }
 }
-var a = new Config();
-a.config;
-a.findConfigFile();
+exports.Config = Config;

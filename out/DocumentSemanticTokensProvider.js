@@ -22,14 +22,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DocumentSemanticTokensProvider = void 0;
 const vscode = __importStar(require("vscode"));
 const tokenTypes_1 = require("./tokenTypes");
-// For testing purposes
-const index = {
-    keyword: ["test", "testB"],
-};
 /**
  * Deals with processing the document for the tokens to highlight
  */
 class DocumentSemanticTokensProvider {
+    constructor() {
+        /**
+         * The index required for the class to work
+         *
+         * It *must* be set.
+         */
+        this.index = {};
+    }
     async provideDocumentSemanticTokens(document, token) {
         var documentText = document.getText();
         var tokens = this.extractTokens(this.cleanText(documentText));
@@ -52,7 +56,6 @@ class DocumentSemanticTokensProvider {
             var matches = lines[i].matchAll(re);
             var match = matches.next();
             while (!match.done) {
-                //console.log(match.value);
                 var matchType = this.determineType(match.value[0]);
                 if (matchType !== -1 && match.value.index !== undefined)
                     tokens.push({
@@ -108,12 +111,9 @@ class DocumentSemanticTokensProvider {
      */
     determineType(tokenText) {
         var typeNum = -1;
-        console.log(tokenText);
-        Object.keys(index).forEach(typeVal => {
-            if (index[typeVal].includes(tokenText)) {
-                console.log("yes");
+        Object.keys(this.index).forEach(typeVal => {
+            if (this.index[typeVal].includes(tokenText)) {
                 var code = tokenTypes_1.tokenCodes.get(typeVal);
-                console.log(code);
                 if (code !== undefined)
                     typeNum = code;
             }

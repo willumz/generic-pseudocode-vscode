@@ -2,15 +2,17 @@ import * as vscode from "vscode";
 import { TokenInterface, IndexInterface } from "./interfaces";
 import { tokenCodes } from "./tokenTypes";
 
-// For testing purposes
-const index: IndexInterface = {
-    keyword: ["test", "testB"],
-};
-
 /**
  * Deals with processing the document for the tokens to highlight
  */
 export class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTokensProvider {
+    /**
+     * The index required for the class to work
+     *
+     * It *must* be set.
+     */
+    index: IndexInterface = {};
+
     async provideDocumentSemanticTokens(
         document: vscode.TextDocument,
         token: vscode.CancellationToken
@@ -41,7 +43,6 @@ export class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTo
 
             var match = matches.next();
             while (!match.done) {
-                //console.log(match.value);
                 var matchType = this.determineType(match.value[0]);
                 if (matchType !== -1 && match.value.index !== undefined)
                     tokens.push({
@@ -57,9 +58,9 @@ export class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTo
         return tokens;
     }
 
-    /** 
+    /**
      * Removes string literals
-     * 
+     *
      * Replaces the contents of strings (including the '"' but excluding any instances of '\n' or '\r') with '#'
      * @param text - The text to be cleaned
      * @returns The cleaned text
@@ -103,12 +104,9 @@ export class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTo
     determineType(tokenText: string): number {
         var typeNum = -1;
 
-        console.log(tokenText);
-        Object.keys(index).forEach(typeVal => {
-            if (index[typeVal].includes(tokenText)) {
-                console.log("yes");
+        Object.keys(this.index).forEach(typeVal => {
+            if (this.index[typeVal].includes(tokenText)) {
                 var code = tokenCodes.get(typeVal);
-                console.log(code);
                 if (code !== undefined) typeNum = code;
             }
         });
