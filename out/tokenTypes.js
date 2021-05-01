@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.tokenModifiersLegend = exports.tokenTypesLegend = exports.tokenCodes = void 0;
+const tokenCodes = new Map();
+exports.tokenCodes = tokenCodes;
+tokenCodes.set("keyword", 0);
+const tokenTypesLegend = ["keyword"];
+exports.tokenTypesLegend = tokenTypesLegend;
+const tokenModifiersLegend = [];
+exports.tokenModifiersLegend = tokenModifiersLegend;
