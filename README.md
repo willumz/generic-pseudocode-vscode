@@ -127,6 +127,8 @@ You can also define your own custom keywords in a config file.
 
 If you aren't content with the predefined keywords included, you can now add your own to a `.pseudoconfig` file located in your user's home directory (`~/.pseudoconfig` or `C:\Users\{username}\.pseudoconfig`).
 
+**To use this feature you must make sure** `editor.semanticHighlighting.enabled` **is set to** `true` **in VSCode.**
+
 The config file should contain a JSON object, with a single key `"custom"` containing an object with a single key `"keyword"` (the only scope currently supported for custom highlighting) which has a value of an array of strings, which holds your custom keywords.
 
 Example:
