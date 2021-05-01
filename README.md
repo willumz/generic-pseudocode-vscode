@@ -7,6 +7,14 @@ A simple extension for syntax highlighting of generic pseudocode.
 
 Syntax highlighting exists for multiple variants of common pseudocode keywords, allowing you to use your own style and not confining you to a specific format.
 
+## Table of Contents:
+- [Features](#Features)
+    - [Syntax Highlighting](#Syntax-Highlighting)
+    - [Snippets](#Snippets)
+    - [Customisable Keywords](#Customisable-Keywords)
+- [Known Bugs](#Known-Bugs)
+- [Release Notes](#Release-Notes)
+
 ## Features
 
 ### Syntax Highlighting
@@ -114,11 +122,42 @@ Structs:
 ### Snippets
 ![Snippets](images/snippets.gif)
 
+### Customisable Keywords
+You can also define your own custom keywords in a config file.
+
+If you aren't content with the predefined keywords included, you can now add your own to a `.pseudoconfig` file located in your user's home directory (`~/.pseudoconfig` or `C:\Users\{username}\.pseudoconfig`).
+
+**To use this feature you must make sure** `editor.semanticHighlighting.enabled` **is set to** `true` **in VSCode.**
+
+The config file should contain a JSON object, with a single key `"custom"` containing an object with a single key `"keyword"` (the only scope currently supported for custom highlighting) which has a value of an array of strings, which holds your custom keywords.
+
+Example:
+```json
+{
+    "custom": {
+        "keyword": [
+            "customKeyword",
+            "exampleWord"
+        ]
+    }
+}
+```
+In the above example, both `customKeyword` and `exampleWord` will be highlighted as keywords.
+
+NOTE: You must reload the extension after editing the config file.
+
+NOTE: Local config files in the active directory are not currently supported. You can currently only use a global config file which is placed in the home directory.
+
 ## Known Bugs
 
 - do end autocloses in variables
 
 ## Release Notes
+
+### 1.4.0
+
+- Added customisable keywords
+- Added optional config file (used to define customisable keywords)
 
 ### 1.3.0
 

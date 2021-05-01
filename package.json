@@ -4,26 +4,35 @@
     "description": "A simple extension for syntax highlighting of generic pseudocode.",
     "publisher": "Willumz",
     "icon": "images/icon.png",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "engines": {
-        "vscode": "^1.39.0"
+        "vscode": "^1.55.0"
     },
     "categories": [
         "Programming Languages",
         "Snippets"
     ],
     "contributes": {
-        "languages": [{
-            "id": "pseudocode",
-            "aliases": ["Generic Pseudocode", "pseudocode"],
-            "extensions": [".pseudo"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "pseudocode",
-            "scopeName": "source.pseudo",
-            "path": "./syntaxes/pseudocode.tmLanguage.json"
-        }],
+        "languages": [
+            {
+                "id": "pseudocode",
+                "aliases": [
+                    "Generic Pseudocode",
+                    "pseudocode"
+                ],
+                "extensions": [
+                    ".pseudo"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "pseudocode",
+                "scopeName": "source.pseudo",
+                "path": "./syntaxes/pseudocode.tmLanguage.json"
+            }
+        ],
         "snippets": [
             {
                 "language": "pseudocode",
@@ -31,8 +40,19 @@
             }
         ]
     },
+    "activationEvents": [
+        "onLanguage:pseudocode"
+    ],
+    "main": "./out/extension.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/Willumz/generic-pseudocode-vscode.git"
-    }
+    },
+    "devDependencies": {
+        "@types/node": "^15.0.1",
+        "@types/vscode": "^1.55.0",
+        "typescript": "^4.2.4",
+        "vscode": "^1.1.37"
+    },
+    "dependencies": {}
 }
