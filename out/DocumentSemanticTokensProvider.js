@@ -57,7 +57,9 @@ class DocumentSemanticTokensProvider {
             var match = matches.next();
             while (!match.done) {
                 var matchType = this.determineType(match.value[0]);
-                if (matchType !== -1 && match.value.index !== undefined)
+                if (matchType !== -1 &&
+                    match.value.index !== undefined &&
+                    this.checkNotInComment(i, match.value.index, lines))
                     tokens.push({
                         line: i,
                         startCharacter: match.value.index,
@@ -119,6 +121,50 @@ class DocumentSemanticTokensProvider {
             }
         });
         return typeNum;
+    }
+    /**
+     * Checks whether a word is in a comment or not
+     * @param line - the line number of the word
+     * @param startCharacter - the position of the first character of the word to be checked
+     * @param lines - the lines of the text the word is in
+     * @returns true if the word is not in a comment
+     */
+    checkNotInComment(line, startCharacter, lines) {
+        var inLineComment = false;
+        var inBlockComment = false;
+        var maybeStartComment = false;
+        var maybeEndComment = false;
+        for (var i = 0; i < lines.length; i++) {
+            inLineComment = false;
+            maybeStartComment = false;
+            maybeEndComment = false;
+            for (var ci = 0; ci < lines[i].length; ci++) {
+                if (!(inLineComment || inBlockComment)) {
+                    if (maybeStartComment) {
+                        if (lines[i][ci] == "/")
+                            inLineComment = true;
+                        if (lines[i][ci] == "*")
+                            inBlockComment = true;
+                        maybeStartComment = false;
+                    }
+                    else {
+                        if (lines[i][ci] == "/")
+                            maybeStartComment = true;
+                    }
+                }
+                else {
+                    if (lines[i][ci] == "/" && maybeEndComment)
+                        inBlockComment = false;
+                    maybeEndComment = false;
+                    if (lines[i][ci] == "*" && !maybeEndComment)
+                        maybeEndComment = true;
+                }
+                if (i == line && ci == startCharacter) {
+                    return !(inLineComment || inBlockComment);
+                }
+            }
+        }
+        return true;
     }
 }
 exports.DocumentSemanticTokensProvider = DocumentSemanticTokensProvider;
