@@ -122,6 +122,8 @@ Structs:
 ### Snippets
 ![Snippets](images/snippets.gif)
 
+Note: all snippets have uppercase variants beginning with 'u'
+
 ### Customisable Keywords
 You can also define your own custom keywords in a config file.
 
