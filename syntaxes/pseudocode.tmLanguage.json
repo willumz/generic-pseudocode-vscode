@@ -175,6 +175,9 @@
 					},
 					"patterns": [
 						{
+							"include": "#comments"
+						},
+						{
 							"include": "#meta"
 						},
 						{
@@ -233,6 +236,9 @@
 						}
 					},
 					"patterns": [
+						{
+							"include": "#comments"
+						},
 						{
 							"include": "#meta"
 						},
