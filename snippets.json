@@ -48,8 +48,8 @@
             "\t$3",
             "}"
 		],
-        "description": "Create an if-else statement"
-    },
+        	"description": "Create an if-else statement"
+    	},
 	"If-else statement with do": {
 		"prefix": "ifelsedo",
 		"body": [
@@ -136,8 +136,8 @@
             "end"
 		],
 		"description": "Create a for loop with do"
-    },
-    "Foreach loop": {
+    	},
+    	"Foreach loop": {
 		"prefix": "foreach",
 		"body": [
 			"foreach (${1:i} in ${2:iterable}) {",
@@ -172,8 +172,8 @@
             "end"
 		],
 		"description": "Create a while loop with do"
-    },
-    "Loop": {
+    	},
+    	"Loop": {
 		"prefix": "loop",
 		"body": [
 			"loop (${1:condition}) {",
@@ -250,6 +250,266 @@
 			"struct ${1:structName} do",
             "\t$2",
             "end"
+		],
+		"description": "Define a struct with do"
+	},
+	
+	
+	
+	
+	
+	
+	"UPPER Switch-case statement": {
+		"prefix": "uswitch",
+		"body": [
+			"SWITCH(${1:key}) {",
+            "\tCASE \"${2:value}\":",
+            "\t\t$3",
+            "\t\tBREAK",
+            "}"
+		],
+		"description": "Create a switch-case statement"
+	},
+	"UPPER Switch-case statement with do": {
+		"prefix": "uswitchdo",
+		"body": [
+			"SWITCH(${1:key}) DO",
+            "\tCASE \"${2:value}\":",
+            "\t\t$3",
+            "\t\tBREAK",
+            "END"
+		],
+		"description": "Create a switch-case statement"
+	},
+	"UPPER If statement": {
+		"prefix": "uif",
+		"body": [
+			"IF (${1:condition}) {",
+            "\t",
+            "}"
+		],
+		"description": "Create an if statement"
+	},
+	"UPPER If statement with do": {
+		"prefix": "uifdo",
+		"body": [
+			"IF (${1:condition}) DO",
+            "\t",
+            "END"
+		],
+		"description": "Create an if statement with do"
+	},
+	"UPPER If-else statement": {
+		"prefix": "uifelse",
+		"body": [
+			"IF (${1:condition}) {",
+            "\t$2",
+            "} ELSE {",
+            "\t$3",
+            "}"
+		],
+        	"description": "Create an if-else statement"
+    	},
+	"UPPER If-else statement with do": {
+		"prefix": "uifelsedo",
+		"body": [
+			"IF (${1:condition}) DO",
+            "\t$2",
+            "END ELSE DO",
+            "\t$3",
+            "END"
+		],
+		"description": "Create an if-else statement with do"
+	},
+	"UPPER Try-catch statement": {
+		"prefix": "utry",
+		"body": [
+			"TRY {",
+            "\t$2",
+            "} CATCH(${1:err}) {",
+            "\t$3",
+            "}"
+		],
+		"description": "Create a try-catch statement"
+	},
+	"UPPER Try-catch statement with do": {
+		"prefix": "utrydo",
+		"body": [
+			"TRY DO",
+            "\t$2",
+            "END CATCH(${1:err}) DO",
+            "\t$3",
+            "END"
+		],
+		"description": "Create a try-catch statement with do"
+	},
+	"UPPER Function": {
+		"prefix": "ufunction",
+		"body": [
+			"FUNCTION ${1:func}(${2:param}) {",
+            "\t$3",
+            "}"
+		],
+		"description": "Define a new function"
+	},
+	"UPPER Function with do": {
+		"prefix": "ufunctiondo",
+		"body": [
+			"FUNCTION ${1:func}(${2:param}) DO",
+            "\t$3",
+            "END"
+		],
+		"description": "Define a new function with do"
+	},
+	"UPPER Procedure": {
+		"prefix": "uprocedure",
+		"body": [
+			"PROCEDURE ${1:procedureName}() {",
+            "\t$2",
+            "}"
+		],
+		"description": "Define a new procedure"
+	},
+	"UPPER Procedure with do": {
+		"prefix": "uproceduredo",
+		"body": [
+			"PROCEDURE ${1:procedureName}() DO",
+            "\t$2",
+            "END"
+		],
+		"description": "Define a new procedure with do"
+	},
+	"UPPER For loop": {
+		"prefix": "ufor",
+		"body": [
+			"FOR ($1) {",
+            "\t$2",
+            "}"
+		],
+		"description": "Create a for loop"
+	},
+	"UPPER For loop with do": {
+		"prefix": "ufordo",
+		"body": [
+			"FOR ($1) DO",
+            "\t$2",
+            "END"
+		],
+		"description": "Create a for loop with do"
+    	},
+    	"UPPER Foreach loop": {
+		"prefix": "uforeach",
+		"body": [
+			"FOREACH (${1:i} IN ${2:iterable}) {",
+            "\t$3",
+            "}"
+		],
+		"description": "Create a foreach loop"
+	},
+	"UPPER Foreach loop with do": {
+		"prefix": "uforeachdo",
+		"body": [
+			"FOREACH (${1:i} IN ${2:iterable}) DO",
+            "\t$3",
+            "END"
+		],
+		"description": "Create a foreach loop with do"
+	},
+	"UPPER While loop": {
+		"prefix": "uwhile",
+		"body": [
+			"WHILE (${1:condition}) {",
+            "\t$2",
+            "}"
+		],
+		"description": "Create a while loop"
+	},
+	"UPPER While loop with do": {
+		"prefix": "uwhiledo",
+		"body": [
+			"WHILE (${1:condition}) DO",
+            "\t$2",
+            "END"
+		],
+		"description": "Create a while loop with do"
+    	},
+    	"UPPER Loop": {
+		"prefix": "uloop",
+		"body": [
+			"LOOP (${1:condition}) {",
+            "\t$2",
+            "}"
+		],
+		"description": "Create a loop"
+	},
+	"UPPER Loop with do": {
+		"prefix": "uloopdo",
+		"body": [
+			"LOOP (${1:condition}) DO",
+            "\t$2",
+            "END"
+		],
+		"description": "Create a loop with do"
+	},
+	"UPPER Class": {
+		"prefix": "uclass",
+		"body": [
+			"CLASS ${1:className} {",
+            "\tCONSTRUCTOR(${2:param}) {",
+            "\t\t$3",
+            "\t}",
+            "}"
+		],
+		"description": "Define a class"
+	},
+	"UPPER Class with do": {
+		"prefix": "uclassdo",
+		"body": [
+			"CLASS ${1:className} DO",
+            "\tCONSTRUCTOR(${2:param}) DO",
+            "\t\t$3",
+            "\tEND",
+            "END"
+		],
+		"description": "Define a class with do"
+	},
+	"UPPER Class extends": {
+		"prefix": "uclassextends",
+		"body": [
+			"CLASS ${1:className} EXTENDS ${2:super} {",
+            "\tCONSTRUCTOR(${3:param}) {",
+            "\t\t$4",
+            "\t}",
+            "}"
+		],
+		"description": "Define a class which extends a superclass"
+	},
+	"UPPER Class extends with do": {
+		"prefix": "uclassextendsdo",
+		"body": [
+			"CLASS ${1:className} EXTENDS ${2:super} DO",
+            "\tCONSTRUCTOR(${3:param}) DO",
+            "\t\t$4",
+            "\tEND",
+            "END"
+		],
+		"description": "Define a class which extends a superclass with do"
+	},
+	"UPPER Struct": {
+		"prefix": "ustruct",
+		"body": [
+			"STRUCT ${1:structName} {",
+            "\t$2",
+            "}"
+		],
+		"description": "Define a struct"
+	},
+	"UPPER Struct with do": {
+		"prefix": "ustructdo",
+		"body": [
+			"STRUCT ${1:structName} DO",
+            "\t$2",
+            "END"
 		],
 		"description": "Define a struct with do"
 	}
