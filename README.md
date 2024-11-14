@@ -1,7 +1,6 @@
 # Pseudocode
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/willumz.generic-pseudocode)](https://marketplace.visualstudio.com/items?itemName=willumz.generic-pseudocode)
-
 <!-- [![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/willumz.generic-pseudocode)](https://marketplace.visualstudio.com/items?itemName=willumz.generic-pseudocode) -->
 
 A simple extension for syntax highlighting of generic pseudocode. (file extension: `.pseudo`)
@@ -9,11 +8,10 @@ A simple extension for syntax highlighting of generic pseudocode. (file extensio
 Syntax highlighting exists for multiple variants of common pseudocode keywords, allowing you to use your own style and not confining you to a specific format.
 
 ## Table of Contents:
-
 - [Features](#Features)
-  - [Syntax Highlighting](#Syntax-Highlighting)
-  - [Snippets](#Snippets)
-  - [Customisable Keywords](#Customisable-Keywords)
+    - [Syntax Highlighting](#Syntax-Highlighting)
+    - [Snippets](#Snippets)
+    - [Customisable Keywords](#Customisable-Keywords)
 - [Known Bugs](#Known-Bugs)
 - [Release Notes](#Release-Notes)
 
@@ -24,7 +22,6 @@ Syntax highlighting exists for multiple variants of common pseudocode keywords, 
 The following items have syntax highlighting. Synonyms are separated by spaces.
 
 #### Keywords:
-
 ```
 output print e.g. output "Hello World"
 input
@@ -45,18 +42,14 @@ continue
 do
 end
 ```
-
 #### Operators:
-
 ```
 and &&
 or ||
 not !
 in
 ```
-
 #### Functions:
-
 ```
 function
 procedure
@@ -66,9 +59,7 @@ e.g.
     end
     say("Hello World")
 ```
-
 #### Classes:
-
 ```
 class
 extends
@@ -85,26 +76,21 @@ e.g.
         end
     end
 ```
-
 #### Structs:
-
 ```
 struct
 e.g.
     struct A do
-
+        
     end
 ```
-
 #### Template Strings:
-
 ```
 ${}
 e.g.
     set user = "John"
     print "Hello, ${user}!"
 ```
-
 If Else:
 
 ![If else](images/ifelse.png)
@@ -134,13 +120,11 @@ Structs:
 ![Structs](images/struct.png)
 
 ### Snippets
-
 ![Snippets](images/snippets.gif)
 
 Note: all snippets have uppercase variants beginning with 'u'
 
 ### Customisable Keywords
-
 You can also define your own custom keywords in a config file.
 
 If you aren't content with the predefined keywords included, you can now add your own to a `.pseudoconfig` file located in your user's home directory (`~/.pseudoconfig` or `C:\Users\{username}\.pseudoconfig`).
@@ -150,15 +134,16 @@ If you aren't content with the predefined keywords included, you can now add you
 The config file should contain a JSON object, with a single key `"custom"` containing an object with a single key `"keyword"` (the only scope currently supported for custom highlighting) which has a value of an array of strings, which holds your custom keywords.
 
 Example:
-
 ```json
 {
-  "custom": {
-    "keyword": ["customKeyword", "exampleWord"]
-  }
+    "custom": {
+        "keyword": [
+            "customKeyword",
+            "exampleWord"
+        ]
+    }
 }
 ```
-
 In the above example, both `customKeyword` and `exampleWord` will be highlighted as keywords.
 
 NOTE: You must reload the extension after editing the config file.
