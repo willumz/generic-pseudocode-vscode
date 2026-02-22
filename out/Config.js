@@ -25,7 +25,7 @@ const path_1 = require("path");
 const vscode = __importStar(require("vscode"));
 const fs_1 = require("fs");
 /**
- * Config class which handles the .pseudoconfig file in the home directory
+ * Config class which handles loading .pseudoconfig files
  */
 class Config {
     /**
@@ -41,23 +41,34 @@ class Config {
         return this._config;
     }
     /** Finds the config file with the highest priority
-     * (currently only supports config file in home directory)
+     * (workspace directory first, then home directory)
      * @param callback - The callback for whatever instantiated {@link Config} to continue in after the config file has been loaded
      */
     findConfigFile(callback) {
         var homeDirectory = os_1.homedir();
-        console.log(homeDirectory);
         var homeDirFile = path_1.join(homeDirectory, ".pseudoconfig");
-        console.log("Home Dir File", homeDirFile);
-        console.log(vscode.workspace.workspaceFolders);
-        fs_1.promises.readFile(homeDirFile)
-            .then(data => {
-            this._config = JSON.parse(data.toString());
-            callback();
-        })
-            .catch(() => {
-            console.log("Pseudocode: Error loading .pseudoconfig file");
-        });
+        var candidateFiles = [];
+        var workspaceFolders = vscode.workspace.workspaceFolders;
+        if (workspaceFolders !== undefined && workspaceFolders.length > 0) {
+            var workspaceDirFile = path_1.join(workspaceFolders[0].uri.fsPath, ".pseudoconfig");
+            candidateFiles.push(workspaceDirFile);
+        }
+        candidateFiles.push(homeDirFile);
+        var tryLoadFile = (index) => {
+            if (index >= candidateFiles.length) {
+                callback();
+                return;
+            }
+            fs_1.promises.readFile(candidateFiles[index])
+                .then(data => {
+                this._config = JSON.parse(data.toString());
+                callback();
+            })
+                .catch(() => {
+                tryLoadFile(index + 1);
+            });
+        };
+        tryLoadFile(0);
     }
 }
 exports.Config = Config;

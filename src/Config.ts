@@ -6,7 +6,7 @@ import * as vscode from "vscode";
 import { promises as fsp } from "fs";
 
 /**
- * Config class which handles the .pseudoconfig file in the home directory
+ * Config class which handles loading .pseudoconfig files
  */
 export class Config {
     /** Stores the config file in JSON format */
@@ -26,24 +26,37 @@ export class Config {
     }
 
     /** Finds the config file with the highest priority
-     * (currently only supports config file in home directory)
+     * (workspace directory first, then home directory)
      * @param callback - The callback for whatever instantiated {@link Config} to continue in after the config file has been loaded
      */
     findConfigFile(callback: () => void): void {
         var homeDirectory = osHomedir();
-        console.log(homeDirectory);
-
         var homeDirFile = joinPath(homeDirectory, ".pseudoconfig");
-        console.log("Home Dir File", homeDirFile);
-        console.log(vscode.workspace.workspaceFolders);
+        var candidateFiles: string[] = [];
 
-        fsp.readFile(homeDirFile)
-            .then(data => {
-                this._config = JSON.parse(data.toString());
+        var workspaceFolders = vscode.workspace.workspaceFolders;
+        if (workspaceFolders !== undefined && workspaceFolders.length > 0) {
+            var workspaceDirFile = joinPath(workspaceFolders[0].uri.fsPath, ".pseudoconfig");
+            candidateFiles.push(workspaceDirFile);
+        }
+        candidateFiles.push(homeDirFile);
+
+        var tryLoadFile = (index: number): void => {
+            if (index >= candidateFiles.length) {
                 callback();
-            })
-            .catch(() => {
-                console.log("Pseudocode: Error loading .pseudoconfig file");
-            });
+                return;
+            }
+
+            fsp.readFile(candidateFiles[index])
+                .then(data => {
+                    this._config = JSON.parse(data.toString());
+                    callback();
+                })
+                .catch(() => {
+                    tryLoadFile(index + 1);
+                });
+        };
+
+        tryLoadFile(0);
     }
 }

@@ -127,7 +127,11 @@ Note: all snippets have uppercase variants beginning with 'u'
 ### Customisable Keywords
 You can also define your own custom keywords in a config file.
 
-If you aren't content with the predefined keywords included, you can now add your own to a `.pseudoconfig` file located in your user's home directory (`~/.pseudoconfig` or `C:\Users\{username}\.pseudoconfig`).
+If you aren't content with the predefined keywords included, you can now add your own to a `.pseudoconfig` file.
+
+The extension checks these locations in order:
+1. Workspace root: `<workspace>/.pseudoconfig`
+2. Home directory fallback: `~/.pseudoconfig` (or `C:\Users\{username}\.pseudoconfig`)
 
 **To use this feature you must make sure** `editor.semanticHighlighting.enabled` **is set to** `true` **in VSCode.**
 
@@ -148,7 +152,7 @@ In the above example, both `customKeyword` and `exampleWord` will be highlighted
 
 NOTE: You must reload the extension after editing the config file.
 
-NOTE: Local config files in the active directory are not currently supported. You can currently only use a global config file which is placed in the home directory.
+NOTE: If both files exist, the workspace config has priority.
 
 ## Known Bugs
 
